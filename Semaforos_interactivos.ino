@@ -1,4 +1,5 @@
 
+#define pot 0
 #define boton 13
 
 #define ledSVerde 6	//Led semaforo coches Verde
@@ -10,6 +11,7 @@
 #define ledPVerde2 7	//Led semaforo peatonal2 Verde
 #define ledPRojo2 8	//Led semaforo peatonal2 rojo
 
+#define ledTiempoMinimo 11
 
 int tiempoEspera = 2000;
 int tiempoParpadeosRapidos = 400;
@@ -19,6 +21,9 @@ int cantidadParpadeos = 4;
 int tiempoEsperaMinimo = 0;
 
 boolean botonPresionado=false;
+boolean tiempoMinimoExpirado=true;
+
+int valorPot = 0;
 
 void setup() {
   pinMode(ledSVerde, OUTPUT);
@@ -28,30 +33,39 @@ void setup() {
   pinMode(ledPRojo, OUTPUT);
   pinMode(ledPVerde2, OUTPUT);
   pinMode(ledPRojo2, OUTPUT);
+  pinMode(ledTiempoMinimo, OUTPUT);
 
   Serial.begin(9600);
 }
 
 void loop() {
-    verificarPulsacion();
+    verificarValorPotenciometro();
+    
     if(botonPresionado){
       cederPasoAPeaton();
     }else{
       encendidoSemaforoCoches();
     }
+    verificarPulsacion();
 }
 
 void encendidoSemaforoCoches(){
-    /******************************Encendido inicial del semaforo de coches y peatonal*/
+    /******************************Encendido del semaforo de coches*/
   digitalWrite(ledSVerde, HIGH);
   digitalWrite(ledPRojo, HIGH);
   digitalWrite(ledPRojo2, HIGH);
-
+  if(!tiempoMinimoExpirado){
+    digitalWrite(ledTiempoMinimo, HIGH);
+    delay(tiempoEsperaMinimo);//Tiempo de espera para volver a pulsar el boton
+    digitalWrite(ledTiempoMinimo, LOW);
+    tiempoMinimoExpirado=true;
+  }
 }
 
-void verificarPulsacion() {
+void verificarPulsacion() {  
   if (digitalRead(boton) == LOW) {
     botonPresionado = true;
+    tiempoMinimoExpirado=false;
   }else{
     botonPresionado = false;
   }
@@ -63,9 +77,6 @@ void cederPasoAPeaton(){
     luzPeatonal();
 }
 
-
-
-
 void parpadeoPreventivoVerdeCoches(){
     for (int i = 0; i < cantidadParpadeos; i++) {
       digitalWrite(ledSVerde, HIGH);
@@ -73,7 +84,6 @@ void parpadeoPreventivoVerdeCoches(){
       digitalWrite(ledSVerde, LOW);
       delay(tiempoParpadeosRapidos);
     }
-
 }
 
 void luzPreventiva(){
@@ -85,7 +95,6 @@ void luzPreventiva(){
     digitalWrite(ledPRojo, LOW);
     digitalWrite(ledPRojo2, LOW);
 }
-
 
 void luzPeatonal(){
     digitalWrite(ledSRojo, HIGH);
@@ -104,16 +113,18 @@ void luzPeatonal(){
       delay(tiempoParpadeosRapidos);
     }
 
-   luzPreventiva();
-    
-    
+   luzPreventiva();    
 }
 
 
 
-
-
-
-
-
+void verificarValorPotenciometro() {
+  valorPot = analogRead(pot);
+  delay(100);
+  Serial.print("valor del potenciometro=     ");
+  Serial.println(valorPot);
+  tiempoEsperaMinimo = map(valorPot, 0, 1020, 500, 30000);
+  Serial.print("tiempo de espera=              ");
+  Serial.println(tiempoEsperaMinimo);
+}
 
