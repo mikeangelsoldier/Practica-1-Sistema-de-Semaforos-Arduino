@@ -10,23 +10,15 @@ El sistema deberá de contener una perilla para controlar el tiempo mínimo en q
 
 # Datos del Alumno
 
-**CARRERA:** 
-
-Ingeniería en Sistemas Computacionales
+**CARRERA:** Ingeniería en Sistemas Computacionales
 
 **Practica 1: Sistema alertizador salvaguarda humano-coche**
 
-**Materia:**
+**Materia:** Sistemas Programables
 
-sistemas Programables
+**Profesor:** Ing. Levy Rojas Carlos Rafael
 
-**Profesor:**
-
-Ing. Levy Rojas Carlos Rafael
-
-**Alumno:** 
-
-Miguel Ángel Ramírez Lira.
+**Alumno:** Miguel Ángel Ramírez Lira.
 
 
 
