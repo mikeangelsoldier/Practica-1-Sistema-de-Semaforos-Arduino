@@ -21,5 +21,28 @@ El sistema deberá de contener una perilla para controlar el tiempo mínimo en q
 **Alumno:** Miguel Ángel Ramírez Lira.
 
 
+## Comenzando 🚀
 
+_Instrucciones para obtener una copia del proyecto en funcionamiento en tu máquina local _
+
+Bajar el repositorio a tu maquina local. Es necesario tener instalado Arduino. Para compilar el archivo semaforos_interactivos.ino en el IDE de arduino es necesario crear una carpeta con el mismo nombre, es decir una carpeta llamada "semaforos_interactivos" y colocar dentro de esta el archivo semaforos_interactivos.ino.
+
+
+### Pre-requisitos 📋
+El IDE de Arduino que se puede descargar de la pagina oficial: [Pagina de Arduino](https://www.arduino.cc/) 
+Tener instalado Git ya sea en linux o windows en caso de querer clonar el repositorio.
+
+### Materiales necesarios 🔧
+*1 Protoboard
+*1 Arduino UNO o cualquier otro arduino
+*Cables 
+*LEDS (Rojo, Ámbar, Verde)
+*Resistencias
+*1 Push button
+*1 Potenciometro
+
+
+## Autor ✒️
+
+* **Miguel Ángel Ramírez Lira** - *Trabajo general* - [villanuevand](https://github.com/villanuevand)
 
