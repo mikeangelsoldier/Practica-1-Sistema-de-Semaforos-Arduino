@@ -33,16 +33,16 @@ El IDE de Arduino que se puede descargar de la pagina oficial: [Pagina de Arduin
 Tener instalado Git ya sea en linux o windows en caso de querer clonar el repositorio.
 
 ### Materiales necesarios 🔧
-*1 Protoboard
-*1 Arduino UNO o cualquier otro arduino
-*Cables 
-*LEDS (Rojo, Ámbar, Verde)
-*Resistencias
-*1 Push button
-*1 Potenciometro
+* 1 Protoboard
+* 1 Arduino UNO o cualquier otro arduino
+* Cables 
+* LEDS (Rojo, Ámbar, Verde)
+* Resistencias
+* 1 Push button
+* 1 Potenciometro
 
 
 ## Autor ✒️
 
-* **Miguel Ángel Ramírez Lira** - *Trabajo general* - [villanuevand](https://github.com/villanuevand)
+* **Miguel Ángel Ramírez Lira** - *Trabajo general* - [mikeangelsoldier](https://github.com/mikeangelsoldier/)
 
